@@ -7,6 +7,7 @@ class startup::install {
     '/vagrant/sites',
     '/vagrant/sites/www',
     '/vagrant/sites/db',
+    '/vagrant/sites/dev',
   ]
 
   file { $site_dirs:

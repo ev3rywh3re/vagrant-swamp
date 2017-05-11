@@ -1,10 +1,11 @@
-# Simple WordPress Vagrant
+# Simple WordPress Multisite Vagrant
 
-This is a relatively simple configuration package that will use vagrant, virtualbox, and puppet to create and configura a webserver running WordPress on your computer.
+This is a relatively simple configuration package that will use vagrant, virtualbox, and puppet to create and configura a webserver running WordPress on your computer. This based on the WordPress Simple Vagrant project found at (https://github.com/ev3rywh3re/vagrant-wp-simple). This project introduces an additional hostname and database intented to be used as a WordPress multisite configured website currently able to use the WordPress multisite sub-directory configuration method.
 
 This project has a simple set of goals:
 
 * Setup a WordPress site at (http://www.wp.dev)
+* Setup a WordPress site at (http://dev.wp.dev) - intended for WordPress multisite.
 * Setup a phpMyAdmin site at (http://db.wp.dev)
 * Allow access to WordPress files at [this-directory]/sites/www/
 * Allow access to phpMyAdmin files at [this-directory]/sites/db/
@@ -63,14 +64,19 @@ If everything installed fine and is working great, you should have the following
 
 * (http://db.wp.dev) - The phpMyAdmin utility. This utility is installed so you can interact with the database portion of the WordPress installation. Information about phpMyAdmin can be found at (https://www.phpmyadmin.net).
 * (http://www.wp.dev) - Your local WordPress installed. This installation is a fresh installation, so you will still need to supply the basic information when you first setup your Simple WordPress Vagrant.
+* (http://dev.wp.dev) - Another local WordPress installed. This installation is a fresh installation, so you will still need to supply the basic information when you first setup your Simple WordPress Vagrant. This additional domain is added intentionally so that a WordPress multisite configuration would be used in addition to a normal WordPress site.
 
-The **WordPress** portion of your Simple WordPress Vagrant has been prepared with a basic database and database user for you to use in the WordPress installation on (http://www.wp.dev) The MySQL database, user, and password are as follows:
+The **WordPress** portion of your Simple WordPress Vagrant has been prepared with two basic databases and a database user for you to use in the WordPress installations on (http://www.wp.dev) and (http://dev.wp.dev). The MySQL database, user, and password are as follows:
 
 * Database name: wordpress
 * Database user: wordpress
 * Database password: wordpress
 
-The **files for your Simple WordPress Vagrant site** will be found in [this-directory]/sites/www/. This means that you will be able to directly edit files and install themes into [this-directory]/sites/www/wp-content/themes/ and plugins into [this-directory]/sites/www/wp-content/plugins/.
+* Database name: wordpress_multi
+* Database user: wordpress
+* Database password: wordpress
+
+The **files for your Simple WordPress Vagrant site** will be found in [this-directory]/sites/www/ and [this-directory]/sites/dev/. This means that you will be able to directly edit files and install themes into [this-directory]/sites/www/wp-content/themes/ as well as [this-directory]/sites/dev/wp-content/themes/ and plugins into [this-directory]/sites/www/wp-content/plugins/ as well as [this-directory]/sites/dev/wp-content/plugins/.
 
 **To Shutdown the Simple WordPress Vagrant**
 

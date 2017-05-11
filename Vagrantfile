@@ -25,7 +25,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   if defined? VagrantPlugins::HostsUpdater
   config.hostsupdater.aliases = [
     "www.wp.dev",
-    "db.wp.dev"
+    "db.wp.dev",
+    "dev.wp.dev"
   ]
   end
 
