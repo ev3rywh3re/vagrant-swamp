@@ -20,7 +20,7 @@ class wordpress::install {
   }
 
   exec { 'create-user-wordpressmulti':
-    unless  => '/usr/bin/mysql -u wordpress -pwordpress',
+    unless  => '/usr/bin/mysql -u wordpress -pwordpress --database wordpress_multi',
     command => '/usr/bin/mysql -u root -pvagrant --execute="GRANT ALL PRIVILEGES ON wordpress_multi.* TO wordpress@localhost IDENTIFIED BY \'wordpress\'"',
   }
 
