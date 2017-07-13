@@ -12,6 +12,8 @@ exec { 'apt_update':
   path    => '/usr/bin'
 }
 
+include postfix
+
 class { 'git::install': }
 class { 'apache2::install': }
 class { 'php5::install': }
