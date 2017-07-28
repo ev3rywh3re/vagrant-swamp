@@ -94,3 +94,19 @@ You will be able to access this systems by using SSH on your local system. Using
 
 * General user account: Username: vagrant Password: vagrant
 * Root administrative user: Username: root Password: vagrant
+
+##WordPress Multisite Notes##
+
+For now I am putting my personal notes for separating the WordPress core installation and activating multisite.
+
+1. Put WordPress into a subfolder in the website root. In this case I'm using /vagrant/sites/dev/wp/
+2. Run the automated WordPress install procedure. Set up admin account, log in, set permalink settings.
+3. Copy /wp/index.php and /wp/wp-config.php up one level to website root.
+4. Modify /wp/index.php to properly reference the WordPress files in /wp/. It may look like `require( dirname( __FILE__ ) . '/wp/wp-blog-header.php' );`
+5. Test the site at the main domain.
+6. Make sure the database options are set properly. The Site URL (home) will be the main URL (dev.wp.dev in this case). The WordPress URL (siteurl) will be the address for the full WordPress install (dev.wp.dev/wp in this case)
+7. Test the site at dev.wp.dev and log in to test the account. Update the permalink settings and update the .htaccess file if necessary.
+9. Next I will use the `define('WP_CONTENT_DIR', '');` and `define('WP_CONTENT_URL', '');` to reference the wp-content folder in the website root. This actually makes the WordPress site work as a normal wordpress site.
+10. Now I follow the wp-config.php and other procedures for enabling multisite.
+
+The goal is to have a clean /sites/dev/ folder with WordPress core residing in /sites/dev/wp/ while themes, plugins, and uploads reside in /sites/dev/wp-content/. This configuration makes it easy to maintain WordPress and other additional plugins, themes, and user uploads separately.
