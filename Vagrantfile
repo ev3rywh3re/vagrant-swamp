@@ -12,7 +12,7 @@ end
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = "ubuntu/trusty64"
-  config.vm.hostname = "wp.dev"
+  config.vm.hostname = "wp.loc"
   config.vm.network :private_network, ip: "192.168.33.28"
   config.vm.synced_folder ".", "/vagrant", owner: "vagrant", group: "vagrant"
 
@@ -24,9 +24,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   if defined? VagrantPlugins::HostsUpdater
   config.hostsupdater.aliases = [
-    "www.wp.dev",
-    "db.wp.dev",
-    "dev.wp.dev"
+    "www.wp.loc",
+    "db.wp.loc",
+    "dev.wp.loc"
   ]
   end
 
