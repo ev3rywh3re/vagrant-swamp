@@ -97,7 +97,7 @@ You will be able to access this systems by using SSH on your local system. Using
 
 ##WordPress Multisite Notes##
 
-For now I am putting my personal notes for separating the WordPress core installation and activating multisite.
+For now I am putting my personal notes for separating the WordPress core installation and activating multisite. Although I intend to keep this project vary basic, the goal is keep things simple so this vagrant configuration can be used to learn more about complex web applicaions like WordPress.
 
 1. Put WordPress into a subfolder in the website root. In this case I'm using /vagrant/sites/dev/wp/
 2. Run the automated WordPress install procedure. Set up admin account, log in, set permalink settings.
@@ -106,7 +106,7 @@ For now I am putting my personal notes for separating the WordPress core install
 5. Test the site at the main domain.
 6. Make sure the database options are set properly. The Site URL (home) will be the main URL (dev.wp.dev in this case). The WordPress URL (siteurl) will be the address for the full WordPress install (dev.wp.dev/wp in this case)
 7. Test the site at dev.wp.dev and log in to test the account. Update the permalink settings and update the .htaccess file if necessary.
-9. Next I will use the `define('WP_CONTENT_DIR', '');` and `define('WP_CONTENT_URL', '');` to reference the wp-content folder in the website root. This actually makes the WordPress site work as a normal wordpress site.
-10. Now I follow the wp-config.php and other procedures for enabling multisite.
+9. Next I will use the `define('WP_CONTENT_DIR', '');` and `define('WP_CONTENT_URL', '');` to reference the wp-content folder in the website root. This actually makes the WordPress site work as a wordpress site normally works with the /wp-content folder in the site root.
+10. Now I follow the wp-config.php and other procedures for enabling multisite. This is a multi-step process which requires manual editing of the wp-config.php and .htaccess files.
 
 The goal is to have a clean /sites/dev/ folder with WordPress core residing in /sites/dev/wp/ while themes, plugins, and uploads reside in /sites/dev/wp-content/. This configuration makes it easy to maintain WordPress and other additional plugins, themes, and user uploads separately.
