@@ -10,3 +10,4 @@
 
 # Local site ignores
 /sites
+/db-backups
