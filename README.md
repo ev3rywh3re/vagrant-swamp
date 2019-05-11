@@ -1,6 +1,6 @@
-# Simple WordPress Multisite Vagrant
+# A Vagrant Swamp
 
-This is a relatively simple configuration package that will use vagrant, virtualbox, and puppet to create and configura a webserver running WordPress on your computer. This based on the WordPress Simple Vagrant project found at (https://github.com/ev3rywh3re/vagrant-wp-simple). This project introduces an additional hostname and database intented to be used as a WordPress multisite configured website currently able to use the WordPress multisite sub-directory configuration method.
+This is a relatively simple configuration package that will use vagrant, virtualbox, and puppet to create and configura a webserver running on your computer with some CMS web software and some development tools (so far: WordPress, PhpMyAdmin). This is based on many other similar projects.
 
 This project has a simple set of goals:
 
