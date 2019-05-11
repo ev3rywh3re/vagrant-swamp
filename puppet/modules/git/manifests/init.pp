@@ -3,7 +3,7 @@
 class git::install {
 
   package{'git':
-    ensure=>present,
+    ensure => present,
   }
 
 }

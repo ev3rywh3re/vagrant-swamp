@@ -11,7 +11,6 @@ class apache2::install {
     require => Package['apache2'],
   }
 
-
   # envars file to change the user/group that apache uses to run its process
   file { '/etc/apache2/envvars':
     ensure  => file,
@@ -22,7 +21,6 @@ class apache2::install {
     require => Package['apache2'],
     notify  => Service['apache2'],
   }
-
 
   file { '/etc/apache2/sites-available/default.conf':
     ensure  => file,

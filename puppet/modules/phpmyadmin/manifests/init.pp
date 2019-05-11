@@ -3,27 +3,28 @@
 class phpmyadmin::install {
 
   # Get a new copy of the latest phpMyAdmin release
-  # FILE TO DOWNLOAD: https://files.phpmyadmin.net/phpMyAdmin/4.6.6/phpMyAdmin-4.6.6-all-languages.tar.gz
-  # !!Issue!! - currently not direct download URL
+  # !!Issue!! - currently not direct stable download URL
 
   exec { 'download-phpmyadmin': #tee hee
-    command => '/usr/bin/wget https://files.phpmyadmin.net/phpMyAdmin/4.6.6/phpMyAdmin-4.6.6-all-languages.tar.gz -O /vagrant/phpmyadmin.tar.gz',
+    path    => ['/usr/bin','/usr/sbin','/bin','/sbin'],
+    command => 'sudo wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 4 https://files.phpmyadmin.net/phpMyAdmin/4.8.3/phpMyAdmin-4.8.3-all-languages.zip -O /vagrant/phpmyadmin.zip',
     cwd     => '/vagrant/',
-    creates => '/vagrant/phpmyadmin.tar.gz'
+    creates => '/vagrant/phpmyadmin.zip'
   }
 
-  exec { 'untar-phpmyadmin':
+  exec { 'unzip-phpmyadmin':
+    path    => ['/usr/bin','/usr/sbin','/bin','/sbin'],
     cwd     => '/vagrant/',
-    command => '/bin/tar -xzvf /vagrant/phpmyadmin.tar.gz',
+    command => 'unzip /vagrant/phpmyadmin.zip -d /vagrant/phpmyadmin',
     require => Exec['download-phpmyadmin'],
-    creates => '/vagrant/phpMyAdmin-4.6.6-all-languages'
+    creates => '/vagrant/phpmyadmin'
   }
 
   exec { "move-phpmyadmin":
     path    => ['/usr/bin','/usr/sbin','/bin','/sbin'],
     cwd     => '/vagrant/',
-    command => "/bin/cp -Rf /vagrant/phpMyAdmin-4.6.6-all-languages/* /vagrant/sites/db/",
-    require => Exec['untar-phpmyadmin'],
+    command => "cp -Rf /vagrant/phpmyadmin/* /vagrant/sites/db/",
+    require => Exec['unzip-phpmyadmin'],
     returns => [0,1]
   }
 

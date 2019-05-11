@@ -12,25 +12,18 @@ class php5::install {
     ]:
     ensure => present,
   }
-  
+
 }
 
-# PHP config http://stackoverflow.com/questions/10800199/set-config-value-in-php-ini-with-puppet;
-augeas { 'php_dev_config':
-  context => '/files/etc/php5/apache2/php.ini/PHP',
-  changes => [
-    'set max_execution_time 60',
-    'set max_input_time 90',
-    'set memory_limit 256M',
-    'set post_max_size 34M',
-    'set upload_max_filesize 32M',
-
-    'set error_reporting E_ALL | E_STRICT',
-
-    'set display_errors On',
-    'set display_startup_errors On',
-    'set html_errors On',
-  ],
-  require => Package['php5'],
-  notify => Exec['reload apache']
+define set_php_var($value) {
+  exec { "sed -i 's/^;*[[:space:]]*$name[[:space:]]*=.*$/$name = $value/g' /etc/php.ini":
+    unless  => "grep -xqe '$name[[:space:]]*=[[:space:]]*$value' -- /etc/php.ini",
+    path    => "/bin:/usr/bin",
+    require => Package[php5],
+    notify  => Service[apache2];
+  }
+}
+set_php_var {
+  "post_max_size":       value => '10M';
+  "upload_max_filesize": value => '10M';
 }

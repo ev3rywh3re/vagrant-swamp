@@ -8,6 +8,7 @@ class startup::install {
     '/vagrant/sites/www',
     '/vagrant/sites/db',
     '/vagrant/sites/dev',
+    '/vagrant/sites/log',    
   ]
 
   file { $site_dirs:

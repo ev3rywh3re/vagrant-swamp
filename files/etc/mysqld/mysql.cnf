@@ -1,0 +1,4 @@
+[mysqld]
+skip-grant-tables
+
+[mysql]
