@@ -6,11 +6,11 @@ This is a relatively simple configuration package that will use vagrant, virtual
 
 Please be aware that this is an experimental local development system. The root and user passwords as well as authentication keys are publicly posted. (at least for now)
 
-This project has a simple set of goals:
+### This project has a simple set of goals:
 
-* Setup a WordPress site at (http://www.wp.loc)
-* Setup a WordPress site at (http://dev.wp.loc) - intended for WordPress multisite.
-* Setup a phpMyAdmin site at (http://db.wp.loc)
+* Setup a WordPress site at (http://wp.swamp.local)
+* Setup a WordPress site at (http://wp-m.swamp.local) - intended for WordPress multisite.
+* Setup a phpMyAdmin site at (http://db.swamp.local)
 * Allow access to WordPress files at [this-directory]/sites/www/
 * Allow access to phpMyAdmin files at [this-directory]/sites/db/
 
@@ -51,7 +51,7 @@ These are the basic applications and utilities that need to be installed.
 1. Download the archive for this repository.
 2. Uncompress this archive on the computer where you've installed and configured VirtualBox, Vagrant, and Vagrant - HostsUpdater.
 3. Using a terminal application or other command line utility, attempt to run the `# vagrand up` command.
-4. Once complete you should be able to interact with your MySQL databases by visiting http://db.wp.loc, and you can start your WordPress installation by visiting http://www.wp.loc.
+4. Once complete you should be able to interact with your MySQL databases by visiting http://db.swamp.local, and you can start your WordPress installation by visiting http://wp.swamp.local.
 
 ## Simple WordPress Vagrant Usage
 
@@ -66,11 +66,11 @@ The Simple WordPress Vagrant environment is fairly easy to manage and is meant t
 
 If everything installed fine and is working great, you should have the following URLs running on your local computer.
 
-* (http://db.wp.loc) - The phpMyAdmin utility. This utility is installed so you can interact with the database portion of the WordPress installation. Information about phpMyAdmin can be found at (https://www.phpmyadmin.net).
-* (http://www.wp.loc) - Your local WordPress installed. This installation is a fresh installation, so you will still need to supply the basic information when you first setup your Simple WordPress Vagrant.
-* (http://dev.wp.loc) - Another local WordPress installed. This installation is a fresh installation, so you will still need to supply the basic information when you first setup your Simple WordPress Vagrant. This additional domain is added intentionally so that a WordPress multisite configuration would be used in addition to a normal WordPress site.
+* (http://db.swamp.local) - The phpMyAdmin utility. This utility is installed so you can interact with the database portion of the WordPress installation. Information about phpMyAdmin can be found at (https://www.phpmyadmin.net).
+* (http://wp.swamp.local) - Your local WordPress installed. This installation is a fresh installation, so you will still need to supply the basic information when you first setup your Simple WordPress Vagrant.
+* (http://wp-mswamp.local) - Another local WordPress installed. This installation is a fresh installation, so you will still need to supply the basic information when you first setup your Simple WordPress Vagrant. This additional domain is added intentionally so that a WordPress multisite configuration would be used in addition to a normal WordPress site.
 
-The **WordPress** portion of your Simple WordPress Vagrant has been prepared with two basic databases and a database user for you to use in the WordPress installations on (http://www.wp.loc) and (http://dev.wp.loc). The MySQL database, user, and password are as follows:
+The **WordPress** portion of your Simple WordPress Vagrant has been prepared with two basic databases and a database user for you to use in the WordPress installations on (http://wp.swamp.local) and (http://wp-mswamp.local). The MySQL database, user, and password are as follows:
 
 * Database name: wordpress
 * Database user: wordpress
@@ -88,7 +88,7 @@ Use your computers command line utility and submit the `# vagrant halt` command.
 
 **To Reset and Remove the Simple WordPress Vagrant**
 
-This option is also still partially non-destructive, but this will remove the virtual system and destroy the database used by your (http://www.wp.loc) site. To perform this option, use your operating system command line utility to run the `# vagrant destroy` command. **This option will not modify files in the [this-directory]/sites/www or [this-directory]/sites/db directories.**
+This option is also still partially non-destructive, but this will remove the virtual system and destroy the database used by your (http://wp.swamp.local) site. To perform this option, use your operating system command line utility to run the `# vagrant destroy` command. **This option will not modify files in the [this-directory]/sites/www or [this-directory]/sites/db directories.**
 
 **Other Ways to Interact With Your New System**
 
@@ -108,8 +108,8 @@ For now I am putting my personal notes for separating the WordPress core install
 3. Copy /wp/index.php and /wp/wp-config.php up one level to website root.
 4. Modify /wp/index.php to properly reference the WordPress files in /wp/. It may look like `require( dirname( __FILE__ ) . '/wp/wp-blog-header.php' );`
 5. Test the site at the main domain.
-6. Make sure the database options are set properly. The Site URL (home) will be the main URL (dev.wp.loc in this case). The WordPress URL (siteurl) will be the address for the full WordPress install (dev.wp.loc/wp in this case)
-7. Test the site at dev.wp.loc and log in to test the account. Update the permalink settings and update the .htaccess file if necessary.
+6. Make sure the database options are set properly. The Site URL (home) will be the main URL (wp-m.swamp.local in this case). The WordPress URL (siteurl) will be the address for the full WordPress install (wp-m.swamp.local/wp in this case)
+7. Test the site at wp-m.swamp.local and log in to test the account. Update the permalink settings and update the .htaccess file if necessary.
 9. Next I will use the `define('WP_CONTENT_DIR', '');` and `define('WP_CONTENT_URL', '');` to reference the wp-content folder in the website root. This actually makes the WordPress site work as a wordpress site normally works with the /wp-content folder in the site root.
 10. Now I follow the wp-config.php and other procedures for enabling multisite. This is a multi-step process which requires manual editing of the wp-config.php and .htaccess files.
 

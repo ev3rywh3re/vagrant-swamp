@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.box = "debian/buster64"
   # PHP5 requires Debian Jessie64 see PHP Puppet configuration.
   # config.vm.box = "debian/jessie64"
-  config.vm.hostname = "wp.loc"
+  config.vm.hostname = "swamp.local"
   config.vm.network :private_network, ip: "192.168.33.28"
 
   # trying to fix browsersync
@@ -46,9 +46,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   if defined? VagrantPlugins::HostsUpdater
   config.hostsupdater.aliases = [
-    "www.wp.loc",
-    "db.wp.loc",
-    "dev.wp.loc"
+    "db.swamp.local",
+    "wp.swamp.local",
+    "wp-m.swamp.local"
   ]
   end
 
