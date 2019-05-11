@@ -2,6 +2,10 @@
 
 This is a relatively simple configuration package that will use vagrant, virtualbox, and puppet to create and configura a webserver running on your computer with some CMS web software and some development tools (so far: WordPress, PhpMyAdmin). This is based on many other similar projects.
 
+## security
+
+Please be aware that this is an experimental local development system. The root and user passwords as well as authentication keys are publicly posted. (at least for now)
+
 This project has a simple set of goals:
 
 * Setup a WordPress site at (http://www.wp.loc)
