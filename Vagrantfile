@@ -104,14 +104,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       # Backup Databases
       debian.trigger.before :destroy do |trigger|
-        trigger.warn = "Dumping database to /vagrant/backups"
+        trigger.warn = "Dumping database to /vagrant/db-backups"
         trigger.run_remote = {inline: "/vagrant/scripts/backupdbs.sh"}
         trigger.on_error = :continue
       end
 
       # Restore Databases
       debian.trigger.after :up do |trigger|
-        trigger.warn = "Restoring database from /vagrant/backups"
+        trigger.warn = "Restoring database from /vagrant/db-backups"
         trigger.run_remote = {inline: "/vagrant/scripts/restoredbs.sh"}
         trigger.on_error = :continue
       end

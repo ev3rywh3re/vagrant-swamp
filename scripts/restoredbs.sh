@@ -3,7 +3,7 @@
 USER="root"
 PASSWORD="vagrant"
 
-cd /vagrant/backups/
+cd /vagrant/db-backups/
 
 databases=`ls -1 *.sql`
 
