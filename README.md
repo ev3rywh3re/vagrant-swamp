@@ -114,3 +114,7 @@ For now I am putting my personal notes for separating the WordPress core install
 10. Now I follow the wp-config.php and other procedures for enabling multisite. This is a multi-step process which requires manual editing of the wp-config.php and .htaccess files.
 
 The goal is to have a clean /sites/dev/ folder with WordPress core residing in /sites/dev/wp/ while themes, plugins, and uploads reside in /sites/dev/wp-content/. This configuration makes it easy to maintain WordPress and other additional plugins, themes, and user uploads separately.
+
+##Notes and Issues##
+
+1. MacOS issues with hostsupdater. Some utilities that modify the /etc/hosts file may modify the files ACL permissions. I noticed this issue with Gas Mask. In some cases you may need to remove these ACL modifictions using the following command in the terminal.app `# sudo chmod -R -N /etc/hosts`
