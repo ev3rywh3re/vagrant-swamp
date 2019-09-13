@@ -45,6 +45,7 @@ These are the basic applications and utilities that need to be installed.
 1. Install VirtualBox by visiting (https://www.virtualbox.org), downloading the latest version, and running the downloaded installation application.
 2. Install Vagrant by visiting (https://www.vagrantup.com/), downloading the latest version, and running the downloaded installation application.
 3. Install Vagrant - hostsupdater by using a command line utility (on MacOS use Terminal and on Windows use CMD). The command to use is `# vagrant plugin install vagrant-hostsupdater`
+4. Install Vagrant - guest additions by using a command line utility (on MacOS use Terminal and on Windows use CMD). The command to use is `# vagrant plugin install vagrant-vbguest`
 
 ### Simple WordPress Vagrant Installation
 
